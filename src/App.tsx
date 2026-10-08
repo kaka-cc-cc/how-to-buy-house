@@ -1,142 +1,24 @@
-import "./App.css";
-import { Breadcrumb, Menu, Layout, ConfigProvider } from "antd";
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-  useNavigate,
-  useLocation,
-  Outlet,
-} from "react-router-dom";
-import { HomePage } from "./Pages/Home";
-import { AboutPage } from "./Pages/About";
-import Sider from "antd/es/layout/Sider";
-import { useState } from "react";
-import { CityPage } from "./Pages/City";
-
-const { Content, Footer } = Layout;
-
-// 主应用组件
-function AppLayout() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [collapsed, setCollapsed] = useState(true);
-  const menus = [
-    {
-      key: "home",
-      label: "Home",
-    },
-    {
-      key: "city",
-      label: "City",
-    },
-    {
-      key: "about",
-      label: "About",
-    },
-  ];
-
-  // 根据当前路径获取选中的菜单项
-  const getSelectedKey = () => {
-    const path = location.pathname;
-    if (path === "/" || path === "/home") {
-      return "home";
-    }
-    if (path === "/city") {
-      return "city";
-    }
-    if (path === "/about") {
-      return "about";
-    }
-    return "home";
-  };
-
-  const getBreadcrumbItems = () => {
-    if (location.pathname === "/home" || location.pathname === "/") {
-      return [{ title: "Dashboard" }];
-    }
-    if (location.pathname === "/city") {
-      return [{ title: "City" }];
-    }
-    if (location.pathname === "/about") {
-      return [{ title: "About" }];
-    }
-    return [{ title: "Home" }];
-  };
-
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Layout: {
-            siderBg: "#fff",
-            triggerBg: "#fff",
-            triggerColor: "#000",
-          },
-        },
-      }}
-    >
-      <Layout className="layout" hasSider>
-        <Sider
-          width={200}
-          collapsible
-          collapsed={collapsed}
-          onCollapse={(value) => setCollapsed(value)}
-        >
-          <div className="demo-logo-vertical" />
-          <Menu
-            theme="light"
-            selectedKeys={[getSelectedKey()]}
-            mode="inline"
-            items={menus}
-            onClick={(e) => {
-              navigate(`/${e.key}`);
-            }}
-          />
-        </Sider>
-        <Layout>
-          <Content className="content">
-            <Breadcrumb className="breadcrumb" items={getBreadcrumbItems()} />
-            <div className="content-container">
-              <Outlet />
-            </div>
-          </Content>
-          <Footer style={{ textAlign: "center" }}>
-            ©{new Date().getFullYear()} Created by yl
-          </Footer>
-        </Layout>
-      </Layout>
-    </ConfigProvider>
-  );
-}
+import { useState } from 'react';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
+import { NationalTracker } from './components/NationalTracker';
+import { OfficialTracker } from './components/OfficialTracker';
+import './App.css';
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <AppLayout />,
-      children: [
-        { index: true, element: <Navigate to="/home" /> },
-        { path: "home", element: <HomePage /> },
-        { path: "about", element: <AboutPage /> },
-        { path: "city", element: <CityPage /> },
-      ],
-    },
-    {
-      path: "/home",
-      element: <HomePage />,
-    },
-    {
-      path: "/about",
-      element: <AboutPage />,
-    },
-    {
-      path: "/city",
-      element: <CityPage />,
-    },
-  ]);
-
-  return <RouterProvider router={router} />;
+  const [tab, setTab] = useState<'national' | 'official'>(() => location.hash === '#official' ? 'official' : 'national');
+  function navigate(next: 'national' | 'official') { setTab(next); history.replaceState(null, '', `#${next}`); }
+  return <ConfigProvider locale={zhCN} theme={{ token: { colorPrimary: '#2563eb', borderRadius: 12, fontFamily: 'inherit' } }}>
+    <div className="app-shell">
+      <header className="app-header"><div className="brand-mark" aria-hidden="true">⌂</div><div><h1>二手房价格跟踪</h1>
+        <p>关注城市，查看月度变化</p></div></header>
+      <nav className="tab-navigation" aria-label="价格数据类型">
+        <button aria-current={tab === 'national' ? 'page' : undefined} onClick={() => navigate('national')}>全国参考均价</button>
+        <button aria-current={tab === 'official' ? 'page' : undefined} onClick={() => navigate('official')}>70城官方指数</button>
+      </nav>
+      <main>{tab === 'national' ? <NationalTracker onShowOfficial={() => navigate('official')} /> : <OfficialTracker />}</main>
+      <footer>二手房价格跟踪 · 数据月份和统计口径以各来源为准</footer>
+    </div>
+  </ConfigProvider>;
 }
-
 export default App;

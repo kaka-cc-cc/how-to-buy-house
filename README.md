@@ -1,182 +1,71 @@
-# 购房指北 🏠
+# 二手房价格跟踪
 
-一个基于国家统计局房价指数数据的房价走势可视化工具，帮助用户了解各城市房价变化趋势。
+专注二手房月度价格变化：全国地区参考均价与国家统计局 70 城成交价格指数分开显示。无广告、作者推广或房贷计算器。
 
-## 📊 项目介绍
+## 当前能力与数据边界
 
-本项目收集了国家统计局的房价指数数据，将其制作成直观的趋势图和详细的数据列表，方便用户：
+- 全国目录：369 个中国大陆地级地区、直辖市及省直辖地区；支持按省份搜索，也可按名称查询目录外的城市或区县。
+- 全国均价：通过聚汇免费房价接口按需查询。展示元/㎡、环比、同比、真实数据月份；支持近 6 个月走势、同名地区选择、关注、缓存和 CSV 导出。
+- 官方指数：保留 2022-06 至 2026-08 的 51 个月、70 城记录，基期 2022-05=100；支持五城对比、月份选择、排序、搜索与导出。
+- 手机表格在表格内部横向滚动，页面不会被撑宽。
 
-- 📈 **房价走势可视化** - 多城市房价指数趋势图对比
-- 📋 **详细数据展示** - 环比、同比、平均值等关键指标
-- 🎯 **多城市对比** - 支持同时选择多个城市进行对比
+**目录收录不等于每个地区都有价格数据。** 聚汇接口需要自己的 API Key；某些城市/区县可能缺失或滞后。仓库可包含分批取得的真实价格快照，不嵌入任何 API Key。尚未配置时页面明确显示实时查询未接入，已保存均价及70城官方指数仍可查看。
 
-## 🛠️ 技术栈
+第三方均价不是每套房的成交价，也不能与官方指数直接混算。所有缺失数据均显示“暂无数据”，不会以 0 或估算价格替代。
 
-- **前端框架**: React 18 + TypeScript
-- **构建工具**: Vite
-- **UI 组件库**: Ant Design
-- **图表库**: Ant Design Charts
-- **样式**: Tailwind CSS
-- **日期处理**: Day.js
+## 本地运行
 
-## 👀 预览
+Node.js 22.12 或更新版本、Yarn 1.x。
 
-**站点**: [点我预览](https://fangjia.xin)
-
-![购房指北预览1](https://github.com/user-attachments/assets/03ab075f-bfad-468c-96b2-251ffa52ec71)
-![购房指北预览2](https://github.com/user-attachments/assets/9676298a-13a1-4fe6-9630-fe69add2f116)
-![购房指北预览3](https://github.com/user-attachments/assets/a460a653-a7b0-4e2f-8efa-7643a9b5126c)
-
-## 🚀 快速开始
-
-### 环境要求
-
-- Node.js >= 16.0.0
-- npm >= 8.0.0 或 yarn >= 1.22.0
-
-### 安装依赖
-
-```bash
-yarn install
-```
-
-### 启动开发服务器
-
-```bash
+```sh
+yarn install --frozen-lockfile
+cp .env.example .env.local
+# 在 .env.local 填入 GOTOHUI_API_KEY，未填时官方指数仍可使用。
 yarn dev
 ```
 
-启动后，在浏览器中打开 [http://localhost:5173](http://localhost:5173) 即可查看项目。
+聚汇接口申请与文档：<https://www.gotohui.com/open-api/docs>。创建个人账户 Key 即可使用免费房价接口。已用真实 Key 验证深圳、苏州最新均价及昆山同名地区返回；完整目录覆盖仍需分批核验。默认房价额度为 100 次/天、1 次/秒，与其积分取数接口分开；本项目只调用免费的 `/house-price`，不调用购买或扣积分接口。
 
-### 构建生产版本
+Key 仅由服务端读取。不要加 `VITE_` 前缀，不要提交 `.env.local`，也不要放入浏览器或聊天记录。开发服务器和生产预览均提供本地 API；Vercel 部署时配置同名服务端环境变量。
 
-```bash
+```sh
+yarn lint
+yarn test
 yarn build
-```
-
-构建完成后，生产文件将生成在 `dist` 目录中。
-
-### 预览生产版本
-
-```bash
 yarn preview
 ```
 
-## 📁 项目结构
+## 全国批量更新
 
-```
-how-to-buy-house/
-├── public/                 # 静态资源
-├── src/
-│   ├── Components/         # 通用组件
-│   ├── Pages/             # 页面组件
-│   │   └── Home/          # 首页
-│   │       ├── data/      # CSV 数据文件
-│   │       ├── index.tsx  # 首页组件
-│   │       └── utils.ts   # 数据处理工具
-│   ├── App.tsx            # 应用入口
-│   └── main.tsx           # 主入口文件
-├── package.json           # 项目配置
-├── vite.config.ts         # Vite 配置
-└── README.md              # 项目说明
+页面默认按需查询选中地区；结果缓存在服务端实例及当前浏览器 24 小时。服务端冷启动可能重新查询，提供方每日额度仍是最终限制。
+
+需要预先填充全国列表时：
+
+```sh
+yarn sync:prices --limit=90
 ```
 
-## 📊 数据说明
+将更新 `public/data/prices.json`，并把本月已尝试地区写入忽略提交的 `.cache/prices-progress.json`，中断后可继续。默认每批最多 90 次，留出页面查询额度；369 个地区至少分 5 批，并应在不同日期执行。接口缺失、同名或失败记录不会伪造价格，也不会删除以前的有效价格。部署前重新构建，才能将快照带入页面。
 
-### 数据来源
+## 官方指数月度更新
 
-- **数据源**: 国家统计局
-- **数据格式**: CSV 文件，文件名格式为 `YYYYMM.csv`
-- **基准时间**: 2022 年 5 月（设定全部城市房价指数为 100）
+在国家统计局公布新一期后，使用原始发布页面链接：
 
-### 数据字段
+```sh
+yarn update:official --month=202609 --url=https://www.stats.gov.cn/原始发布页面路径.html
+```
 
-- **环比**: 与上月相比的房价指数变化
-- **同比**: 与去年同期相比的房价指数变化
-- **今年以来平均**: 今年以来平均房价指数（上年同期=100）
-- **当前房价**: 基于环比数据计算的实际房价指数
+工具只解析表 2 的二手住宅环比、同比，要求 70 城完整且月份连续；链接月份不一致、缺城市或非统计局链接会拒绝更新。更新后执行测试、构建并部署。当前数据最新来源：<https://www.stats.gov.cn/sj/zxfb/202609/t20260915_1965304.html>。
 
-## 🎨 功能特性
+## 部署
 
-- ✅ **多城市选择** - 支持同时选择多个城市
-- ✅ **趋势图对比** - 直观显示房价走势变化
-- ✅ **数据表格** - 详细展示各项指标数据
-- ✅ **实时数据** - 基于最新统计数据
+Vercel 项目使用 Vite 构建，`api/house-price.mjs` 为服务端查询接口。在项目环境变量设置 `GOTOHUI_API_KEY` 后重新部署。不要采用只有静态文件、没有 API 服务的部署方式，否则全国实时查询不可用。
 
-## 🤝 贡献指南
+源代码修改不会自动改变 README 原先链接的第三方演示网站。请部署到自己的项目。
 
-欢迎所有形式的贡献！无论是报告 bug、提出新功能建议，还是提交代码改进，都非常欢迎。
+## 数据与许可
 
-### 如何贡献
-
-1. **Fork 本仓库**
-
-   ```bash
-   git clone https://github.com/your-username/how-to-buy-house.git
-   cd how-to-buy-house
-   ```
-
-2. **创建功能分支**
-
-   ```bash
-   git checkout -b feature/your-feature-name
-   # 或
-   git checkout -b fix/your-bug-fix
-   ```
-
-3. **提交你的更改**
-
-   ```bash
-   git add .
-   git commit -m "feat: add new feature description"
-   ```
-
-4. **推送到分支**
-
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-5. **创建 Pull Request**
-   - 访问 [GitHub Pull Requests](https://github.com/your-username/how-to-buy-house/pulls)
-   - 点击 "New Pull Request"
-   - 选择你的功能分支
-   - 填写详细的描述信息
-
-### 提交规范
-
-我们使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
-
-- `feat:` 新功能
-- `fix:` 修复 bug
-- `docs:` 文档更新
-- `style:` 代码格式调整
-- `refactor:` 代码重构
-- `test:` 测试相关
-- `chore:` 构建过程或辅助工具的变动
-
-### 开发指南
-
-1. **代码风格**: 使用 Prettier 和 ESLint 保持代码风格一致
-2. **类型安全**: 使用 TypeScript 确保类型安全
-3. **组件设计**: 遵循 React 最佳实践
-4. **测试**: 建议为新功能添加测试用例
-
-## 📄 许可证
-
-本项目采用 [MIT 许可证](LICENSE)。
-
-## ⭐ 支持项目
-
-如果这个项目对你有帮助，请给我们一个 ⭐ Star！
-
-## 📞 联系我们
-
-- 项目地址: [GitHub Repository](https://github.com/your-username/how-to-buy-house)
-- 问题反馈: [Issues](https://github.com/your-username/how-to-buy-house/issues)
-- 功能建议: [Discussions](https://github.com/your-username/how-to-buy-house/discussions)
-- 公众号: [个人文章](https://mp.weixin.qq.com/s/NGOb4884aEXGB8AkN7lPdw)
-
----
-
-**购房指北** - 让房价数据更透明，让购房决策更明智 🏠✨
+- 官方指数：项目原有记录，抽查对应国家统计局原始发布；不代表 51 个月全部记录已经逐条重新核验。移除原来混用“2020 年定基”和“今年以来平均”的第三列。
+- 全国地区目录：来自 [Administrative-divisions-of-China](https://github.com/modood/Administrative-divisions-of-China)，2023-06-30 行政区划版本（上游已停止更新），许可保留在 `CITY_DATA_LICENSE`。近期区划变化可通过目录外地区查询补充；目录不包含港澳台价格。
+- 全国参考均价：聚汇数据，具体覆盖、月份和统计口径以数据源返回为准。
+- 原项目代码沿用根目录 `LICENSE` 的 MIT 许可。

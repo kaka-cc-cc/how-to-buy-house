@@ -25,4 +25,6 @@ dist-ssr
 
 # custom
 .env
-oridata
+.env.*
+!.env.example
+.cache/

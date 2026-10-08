@@ -1,0 +1,756 @@
+{
+  "updatedAt": "2026-10-08T06:19:49.237Z",
+  "source": "聚汇数据",
+  "records": [
+    {
+      "region": "北京",
+      "regionId": 1,
+      "name": "北京",
+      "period": "2026-08",
+      "price": 45920,
+      "mom": 0.14,
+      "yoy": -11.99,
+      "fetchedAt": "2026-10-08T06:15:52.914Z"
+    },
+    {
+      "region": "天津",
+      "regionId": 4,
+      "name": "天津",
+      "period": "2026-08",
+      "price": 15704,
+      "mom": -1.63,
+      "yoy": -16.03,
+      "fetchedAt": "2026-10-08T06:15:53.917Z"
+    },
+    {
+      "region": "石家庄",
+      "regionId": 145,
+      "name": "石家庄",
+      "period": "2026-08",
+      "price": 10226,
+      "mom": -0.97,
+      "yoy": -12.22,
+      "fetchedAt": "2026-10-08T06:15:55.015Z"
+    },
+    {
+      "region": "唐山",
+      "regionId": 149,
+      "name": "唐山",
+      "period": "2026-08",
+      "price": 7466,
+      "mom": -3.44,
+      "yoy": -17.71,
+      "fetchedAt": "2026-10-08T06:15:56.070Z"
+    },
+    {
+      "region": "秦皇岛",
+      "regionId": 148,
+      "name": "秦皇岛",
+      "period": "2026-08",
+      "price": 8262,
+      "mom": 5.91,
+      "yoy": -8.76,
+      "fetchedAt": "2026-10-08T06:15:57.288Z"
+    },
+    {
+      "region": "邯郸",
+      "regionId": 155,
+      "name": "邯郸",
+      "period": "2026-08",
+      "price": 8263,
+      "mom": -2.03,
+      "yoy": -11.03,
+      "fetchedAt": "2026-10-08T06:15:58.369Z"
+    },
+    {
+      "region": "邢台",
+      "regionId": 154,
+      "name": "邢台",
+      "period": "2026-08",
+      "price": 6285,
+      "mom": -0.84,
+      "yoy": -5.87,
+      "fetchedAt": "2026-10-08T06:15:59.432Z"
+    },
+    {
+      "region": "保定",
+      "regionId": 151,
+      "name": "保定",
+      "period": "2026-08",
+      "price": 6926,
+      "mom": 1.81,
+      "yoy": -7.91,
+      "fetchedAt": "2026-10-08T06:16:00.552Z"
+    },
+    {
+      "region": "张家口",
+      "regionId": 147,
+      "name": "张家口",
+      "period": "2026-08",
+      "price": 5584,
+      "mom": -1.43,
+      "yoy": -16.87,
+      "fetchedAt": "2026-10-08T06:16:01.675Z"
+    },
+    {
+      "region": "承德",
+      "regionId": 146,
+      "name": "承德",
+      "period": "2026-08",
+      "price": 7172,
+      "mom": 1.67,
+      "yoy": -9.4,
+      "fetchedAt": "2026-10-08T06:16:02.934Z"
+    },
+    {
+      "region": "沧州",
+      "regionId": 152,
+      "name": "沧州",
+      "period": "2026-08",
+      "price": 7858,
+      "mom": 0.43,
+      "yoy": -8.3,
+      "fetchedAt": "2026-10-08T06:16:03.858Z"
+    },
+    {
+      "region": "廊坊",
+      "regionId": 150,
+      "name": "廊坊",
+      "period": "2026-08",
+      "price": 8519,
+      "mom": 5.49,
+      "yoy": -7.03,
+      "fetchedAt": "2026-10-08T06:16:04.876Z"
+    },
+    {
+      "region": "衡水",
+      "regionId": 153,
+      "name": "衡水",
+      "period": "2026-08",
+      "price": 6332,
+      "mom": -0.19,
+      "yoy": -4.36,
+      "fetchedAt": "2026-10-08T06:16:05.989Z"
+    },
+    {
+      "region": "太原",
+      "regionId": 263,
+      "name": "太原",
+      "period": "2026-08",
+      "price": 8858,
+      "mom": 0.03,
+      "yoy": -6.44,
+      "fetchedAt": "2026-10-08T06:16:07.143Z"
+    },
+    {
+      "region": "大同",
+      "regionId": 264,
+      "name": "大同",
+      "period": "2026-08",
+      "price": 5406,
+      "mom": 0,
+      "yoy": -4.01,
+      "fetchedAt": "2026-10-08T06:16:08.464Z"
+    },
+    {
+      "region": "阳泉",
+      "regionId": 265,
+      "name": "阳泉",
+      "period": "2026-08",
+      "price": 4627,
+      "mom": -2.98,
+      "yoy": -7.87,
+      "fetchedAt": "2026-10-08T06:16:09.298Z"
+    },
+    {
+      "region": "长治",
+      "regionId": 266,
+      "name": "长治",
+      "period": "2026-08",
+      "price": 7770,
+      "mom": -0.51,
+      "yoy": -5.78,
+      "fetchedAt": "2026-10-08T06:16:10.406Z"
+    },
+    {
+      "region": "晋城",
+      "regionId": 267,
+      "name": "晋城",
+      "period": "2026-08",
+      "price": 7488,
+      "mom": 0.47,
+      "yoy": -5.36,
+      "fetchedAt": "2026-10-08T06:16:11.742Z"
+    },
+    {
+      "region": "朔州",
+      "regionId": 268,
+      "name": "朔州",
+      "period": "2026-08",
+      "price": 4814,
+      "mom": -1.07,
+      "yoy": -2.57,
+      "fetchedAt": "2026-10-08T06:16:12.859Z"
+    },
+    {
+      "region": "晋中",
+      "regionId": 269,
+      "name": "晋中",
+      "period": "2026-08",
+      "price": 5957,
+      "mom": 0.59,
+      "yoy": -6.51,
+      "fetchedAt": "2026-10-08T06:16:13.765Z"
+    },
+    {
+      "region": "运城",
+      "regionId": 272,
+      "name": "运城",
+      "period": "2026-08",
+      "price": 5676,
+      "mom": -0.4,
+      "yoy": -3.3,
+      "fetchedAt": "2026-10-08T06:16:14.862Z"
+    },
+    {
+      "region": "忻州",
+      "regionId": 270,
+      "name": "忻州",
+      "period": "2026-08",
+      "price": 6495,
+      "mom": -0.09,
+      "yoy": 0.17,
+      "fetchedAt": "2026-10-08T06:16:16.351Z"
+    },
+    {
+      "region": "临汾",
+      "regionId": 271,
+      "name": "临汾",
+      "period": "2026-08",
+      "price": 6643,
+      "mom": -1.51,
+      "yoy": -7.04,
+      "fetchedAt": "2026-10-08T06:16:17.336Z"
+    },
+    {
+      "region": "吕梁",
+      "regionId": 273,
+      "name": "吕梁",
+      "period": "2026-08",
+      "price": 6751,
+      "mom": -0.13,
+      "yoy": 2.71,
+      "fetchedAt": "2026-10-08T06:16:18.161Z"
+    },
+    {
+      "region": "呼和浩特",
+      "regionId": 229,
+      "name": "呼和浩特",
+      "period": "2026-08",
+      "price": 7740,
+      "mom": -0.27,
+      "yoy": -12.25,
+      "fetchedAt": "2026-10-08T06:16:19.234Z"
+    },
+    {
+      "region": "包头",
+      "regionId": 230,
+      "name": "包头",
+      "period": "2026-08",
+      "price": 5832,
+      "mom": 0.43,
+      "yoy": -17.05,
+      "fetchedAt": "2026-10-08T06:16:20.396Z"
+    },
+    {
+      "region": "乌海",
+      "regionId": 353,
+      "name": "乌海",
+      "period": "2026-08",
+      "price": 4983,
+      "mom": -0.99,
+      "yoy": -13.08,
+      "fetchedAt": "2026-10-08T06:16:21.406Z"
+    },
+    {
+      "region": "赤峰",
+      "regionId": 354,
+      "name": "赤峰",
+      "period": "2026-08",
+      "price": 5865,
+      "mom": -0.74,
+      "yoy": -10.61,
+      "fetchedAt": "2026-10-08T06:16:22.926Z"
+    },
+    {
+      "region": "通辽",
+      "regionId": 355,
+      "name": "通辽",
+      "period": "2026-08",
+      "price": 5790,
+      "mom": -0.09,
+      "yoy": -3.58,
+      "fetchedAt": "2026-10-08T06:16:23.597Z"
+    },
+    {
+      "region": "鄂尔多斯",
+      "regionId": 338,
+      "name": "鄂尔多斯",
+      "period": "2026-08",
+      "price": 7455,
+      "mom": -0.36,
+      "yoy": -5.7,
+      "fetchedAt": "2026-10-08T06:16:24.858Z"
+    },
+    {
+      "region": "呼伦贝尔",
+      "regionId": 2353,
+      "name": "呼伦贝尔",
+      "period": "2026-08",
+      "price": 5299,
+      "mom": 0.06,
+      "yoy": 0.72,
+      "fetchedAt": "2026-10-08T06:16:25.809Z"
+    },
+    {
+      "region": "巴彦淖尔",
+      "regionId": 2316,
+      "name": "巴彦淖尔",
+      "period": "2026-08",
+      "price": 4595,
+      "mom": -1.5,
+      "yoy": -7.25,
+      "fetchedAt": "2026-10-08T06:16:26.900Z"
+    },
+    {
+      "region": "乌兰察布",
+      "regionId": 2354,
+      "name": "乌兰察布",
+      "period": "2026-08",
+      "price": 3901,
+      "mom": -0.81,
+      "yoy": 6.41,
+      "fetchedAt": "2026-10-08T06:16:28.052Z"
+    },
+    {
+      "region": "兴安盟",
+      "regionId": 2355,
+      "name": "兴安盟",
+      "period": "2026-08",
+      "price": 5155,
+      "mom": -0.67,
+      "yoy": -9.03,
+      "fetchedAt": "2026-10-08T06:16:29.199Z"
+    },
+    {
+      "region": "深圳",
+      "regionId": 49,
+      "name": "深圳",
+      "period": "2026-07",
+      "price": 59783,
+      "mom": -1.58,
+      "yoy": -7.45,
+      "fetchedAt": "2026-10-08T06:18:08.408Z"
+    },
+    {
+      "region": "苏州",
+      "regionId": 81,
+      "name": "苏州",
+      "period": "2026-08",
+      "price": 15664,
+      "mom": 0.89,
+      "yoy": -16.53,
+      "fetchedAt": "2026-10-08T06:18:06.021Z"
+    },
+    {
+      "region": "杭州",
+      "regionId": 37,
+      "name": "杭州",
+      "period": "2026-08",
+      "price": 30564,
+      "mom": 1.2,
+      "yoy": -12.59,
+      "fetchedAt": "2026-10-08T06:18:07.103Z"
+    },
+    {
+      "region": "352",
+      "regionId": 352,
+      "name": "昆山市",
+      "period": "2026-08",
+      "price": 15140,
+      "mom": 0.68,
+      "yoy": -14.56,
+      "fetchedAt": "2026-10-08T06:18:09.278Z"
+    },
+    {
+      "region": "阿拉善盟",
+      "regionId": 2304,
+      "name": "阿拉善盟",
+      "period": "2026-08",
+      "price": 3366,
+      "mom": 10.4,
+      "yoy": 0,
+      "fetchedAt": "2026-10-08T06:19:06.994Z"
+    },
+    {
+      "region": "沈阳",
+      "regionId": 215,
+      "name": "沈阳",
+      "period": "2026-08",
+      "price": 7863,
+      "mom": -0.08,
+      "yoy": -10.15,
+      "fetchedAt": "2026-10-08T06:19:07.943Z"
+    },
+    {
+      "region": "大连",
+      "regionId": 216,
+      "name": "大连",
+      "period": "2026-08",
+      "price": 10745,
+      "mom": 1.44,
+      "yoy": -7.47,
+      "fetchedAt": "2026-10-08T06:19:09.028Z"
+    },
+    {
+      "region": "鞍山",
+      "regionId": 217,
+      "name": "鞍山",
+      "period": "2026-08",
+      "price": 4130,
+      "mom": 0.22,
+      "yoy": -10.33,
+      "fetchedAt": "2026-10-08T06:19:10.310Z"
+    },
+    {
+      "region": "抚顺",
+      "regionId": 218,
+      "name": "抚顺",
+      "period": "2026-08",
+      "price": 3716,
+      "mom": -1.01,
+      "yoy": -11.98,
+      "fetchedAt": "2026-10-08T06:19:11.340Z"
+    },
+    {
+      "region": "本溪",
+      "regionId": 219,
+      "name": "本溪",
+      "period": "2026-08",
+      "price": 4512,
+      "mom": 0.83,
+      "yoy": -4.49,
+      "fetchedAt": "2026-10-08T06:19:12.339Z"
+    },
+    {
+      "region": "丹东",
+      "regionId": 220,
+      "name": "丹东",
+      "period": "2026-08",
+      "price": 5465,
+      "mom": 3.45,
+      "yoy": -6.1,
+      "fetchedAt": "2026-10-08T06:19:13.522Z"
+    },
+    {
+      "region": "锦州",
+      "regionId": 221,
+      "name": "锦州",
+      "period": "2026-08",
+      "price": 5121,
+      "mom": -1.23,
+      "yoy": -0.18,
+      "fetchedAt": "2026-10-08T06:19:14.590Z"
+    },
+    {
+      "region": "营口",
+      "regionId": 222,
+      "name": "营口",
+      "period": "2026-08",
+      "price": 4121,
+      "mom": 1.35,
+      "yoy": -2.25,
+      "fetchedAt": "2026-10-08T06:19:15.840Z"
+    },
+    {
+      "region": "阜新",
+      "regionId": 223,
+      "name": "阜新",
+      "period": "2026-08",
+      "price": 4227,
+      "mom": -2.38,
+      "yoy": -0.21,
+      "fetchedAt": "2026-10-08T06:19:16.814Z"
+    },
+    {
+      "region": "辽阳",
+      "regionId": 224,
+      "name": "辽阳",
+      "period": "2026-08",
+      "price": 3841,
+      "mom": 1.99,
+      "yoy": -3.52,
+      "fetchedAt": "2026-10-08T06:19:17.849Z"
+    },
+    {
+      "region": "盘锦",
+      "regionId": 227,
+      "name": "盘锦",
+      "period": "2026-08",
+      "price": 4046,
+      "mom": 0.12,
+      "yoy": -4.87,
+      "fetchedAt": "2026-10-08T06:19:18.957Z"
+    },
+    {
+      "region": "铁岭",
+      "regionId": 225,
+      "name": "铁岭",
+      "period": "2026-08",
+      "price": 3562,
+      "mom": -1.19,
+      "yoy": -2.92,
+      "fetchedAt": "2026-10-08T06:19:20.099Z"
+    },
+    {
+      "region": "朝阳",
+      "regionId": 226,
+      "name": "朝阳",
+      "period": "2026-08",
+      "price": 4750,
+      "mom": -1.55,
+      "yoy": 0.15,
+      "fetchedAt": "2026-10-08T06:19:21.168Z"
+    },
+    {
+      "region": "葫芦岛",
+      "regionId": 228,
+      "name": "葫芦岛",
+      "period": "2026-08",
+      "price": 4631,
+      "mom": -0.84,
+      "yoy": -8.21,
+      "fetchedAt": "2026-10-08T06:19:22.355Z"
+    },
+    {
+      "region": "长春",
+      "regionId": 195,
+      "name": "长春",
+      "period": "2026-08",
+      "price": 7000,
+      "mom": -0.14,
+      "yoy": -8.94,
+      "fetchedAt": "2026-10-08T06:19:23.487Z"
+    },
+    {
+      "region": "四平",
+      "regionId": 203,
+      "name": "四平",
+      "period": "2026-08",
+      "price": 3547,
+      "mom": -0.34,
+      "yoy": -10.81,
+      "fetchedAt": "2026-10-08T06:19:25.716Z"
+    },
+    {
+      "region": "辽源",
+      "regionId": 202,
+      "name": "辽源",
+      "period": "2026-08",
+      "price": 3965,
+      "mom": -1.27,
+      "yoy": -4.41,
+      "fetchedAt": "2026-10-08T06:19:26.789Z"
+    },
+    {
+      "region": "通化",
+      "regionId": 196,
+      "name": "通化",
+      "period": "2026-08",
+      "price": 4531,
+      "mom": -1.01,
+      "yoy": -2.96,
+      "fetchedAt": "2026-10-08T06:19:28.124Z"
+    },
+    {
+      "region": "白山",
+      "regionId": 197,
+      "name": "白山",
+      "period": "2026-08",
+      "price": 3961,
+      "mom": 0.81,
+      "yoy": -8.35,
+      "fetchedAt": "2026-10-08T06:19:29.494Z"
+    },
+    {
+      "region": "松原",
+      "regionId": 201,
+      "name": "松原",
+      "period": "2026-08",
+      "price": 4008,
+      "mom": 0.65,
+      "yoy": -3.26,
+      "fetchedAt": "2026-10-08T06:19:30.185Z"
+    },
+    {
+      "region": "白城",
+      "regionId": 199,
+      "name": "白城",
+      "period": "2026-08",
+      "price": 4395,
+      "mom": -3,
+      "yoy": 1.38,
+      "fetchedAt": "2026-10-08T06:19:31.236Z"
+    },
+    {
+      "region": "哈尔滨",
+      "regionId": 156,
+      "name": "哈尔滨",
+      "period": "2026-08",
+      "price": 7688,
+      "mom": -1.21,
+      "yoy": -7.98,
+      "fetchedAt": "2026-10-08T06:19:34.203Z"
+    },
+    {
+      "region": "齐齐哈尔",
+      "regionId": 157,
+      "name": "齐齐哈尔",
+      "period": "2026-08",
+      "price": 4978,
+      "mom": 1.82,
+      "yoy": 0.08,
+      "fetchedAt": "2026-10-08T06:19:34.547Z"
+    },
+    {
+      "region": "鸡西",
+      "regionId": 161,
+      "name": "鸡西",
+      "period": "2026-08",
+      "price": 4606,
+      "mom": -0.5,
+      "yoy": -6.76,
+      "fetchedAt": "2026-10-08T06:19:35.761Z"
+    },
+    {
+      "region": "鹤岗",
+      "regionId": 165,
+      "name": "鹤岗",
+      "period": "2026-08",
+      "price": 2060,
+      "mom": -4.63,
+      "yoy": 4.99,
+      "fetchedAt": "2026-10-08T06:19:37.019Z"
+    },
+    {
+      "region": "双鸭山",
+      "regionId": 163,
+      "name": "双鸭山",
+      "period": "2026-08",
+      "price": 3434,
+      "mom": -4.77,
+      "yoy": -4.95,
+      "fetchedAt": "2026-10-08T06:19:38.561Z"
+    },
+    {
+      "region": "大庆",
+      "regionId": 160,
+      "name": "大庆",
+      "period": "2026-08",
+      "price": 4984,
+      "mom": -1.05,
+      "yoy": -3.37,
+      "fetchedAt": "2026-10-08T06:19:39.391Z"
+    },
+    {
+      "region": "伊春",
+      "regionId": 162,
+      "name": "伊春",
+      "period": "2026-08",
+      "price": 5133,
+      "mom": 1.4,
+      "yoy": -2.62,
+      "fetchedAt": "2026-10-08T06:19:40.333Z"
+    },
+    {
+      "region": "佳木斯",
+      "regionId": 159,
+      "name": "佳木斯",
+      "period": "2026-08",
+      "price": 3678,
+      "mom": -1.55,
+      "yoy": 7.92,
+      "fetchedAt": "2026-10-08T06:19:41.003Z"
+    },
+    {
+      "region": "七台河",
+      "regionId": 164,
+      "name": "七台河",
+      "period": "2026-08",
+      "price": 3763,
+      "mom": 2.87,
+      "yoy": -6.9,
+      "fetchedAt": "2026-10-08T06:19:43.307Z"
+    },
+    {
+      "region": "牡丹江",
+      "regionId": 158,
+      "name": "牡丹江",
+      "period": "2026-08",
+      "price": 4304,
+      "mom": 0.91,
+      "yoy": -0.21,
+      "fetchedAt": "2026-10-08T06:19:44.183Z"
+    },
+    {
+      "region": "黑河",
+      "regionId": 166,
+      "name": "黑河",
+      "period": "2026-08",
+      "price": 4454,
+      "mom": -4.22,
+      "yoy": -1.48,
+      "fetchedAt": "2026-10-08T06:19:44.767Z"
+    },
+    {
+      "region": "绥化",
+      "regionId": 167,
+      "name": "绥化",
+      "period": "2026-08",
+      "price": 3899,
+      "mom": -1.61,
+      "yoy": -8.37,
+      "fetchedAt": "2026-10-08T06:19:45.965Z"
+    },
+    {
+      "region": "上海",
+      "regionId": 3,
+      "name": "上海",
+      "period": "2026-08",
+      "price": 58961,
+      "mom": 0.21,
+      "yoy": -4.59,
+      "fetchedAt": "2026-10-08T06:19:48.557Z"
+    },
+    {
+      "region": "南京",
+      "regionId": 78,
+      "name": "南京",
+      "period": "2026-08",
+      "price": 20567,
+      "mom": -3.2,
+      "yoy": -16.58,
+      "fetchedAt": "2026-10-08T06:19:49.237Z"
+    },
+    {
+      "region": "深圳",
+      "regionId": 49,
+      "name": "深圳",
+      "period": "2026-08",
+      "price": 59329,
+      "mom": -0.76,
+      "yoy": -9.27,
+      "fetchedAt": "2026-10-08T06:18:04.990Z"
+    }
+  ]
+}
