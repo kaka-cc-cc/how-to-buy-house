@@ -12,7 +12,7 @@ const batchMonth = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Shanghai',
 const snapshot = JSON.parse(await fs.readFile(snapshotPath));
 let state = { month: batchMonth, attempted: {} };
 try { const saved = JSON.parse(await fs.readFile(statePath)); if (saved.month === batchMonth) state = saved; } catch { /* First run. */ }
-const records = new Map(snapshot.records.map(record => [record.region, record]));
+const records = new Map(snapshot.records.map(record => [`${record.region}:${record.period}`, record]));
 await fs.mkdir(new URL('../.cache', import.meta.url), { recursive: true });
 let queried = 0;
 let loaded = 0;
@@ -27,7 +27,7 @@ for (const region of catalog) {
     break;
   }
   state.attempted[region.code] = new Date().toISOString();
-  if (result.record) { records.set(name, result.record); loaded++; }
+  if (result.record) { records.set(`${name}:${result.record.period}`, result.record); loaded++; }
   else console.log(`${region.name}：${result.message ?? '暂无数据'}`);
   // Save after each request so interrupted batches can resume.
   await fs.writeFile(snapshotPath, JSON.stringify({ updatedAt: new Date().toISOString(), source: '聚汇数据', records: [...records.values()] }, null, 2) + '\n');

@@ -58,3 +58,21 @@ test('status endpoint hides the credential; invalid region input makes no upstre
   await handler({ method: 'GET', url: '/api/house-price?region=https://invalid.example' }, res);
   assert.equal(res.statusCode, 400);
 });
+
+test('provider string error codes retain actionable messages', async () => {
+  for (const [code, message] of [['503003', '查询频率过高'], ['503004', '今日房价查询额度已用完'], ['503001', '数据源授权无效']]) {
+    const result = await fetchPrice(`测试错误${code}`, undefined, { key: 'test-only', throttle: false,
+      fetcher: async () => ({ ok: true, json: async () => ({ status: 400, code }) }) });
+    assert.equal(result.code, code);
+    assert.ok(result.message.includes(message));
+  }
+});
+
+test('unavailable region does not stop a nationwide batch as a service failure', async () => {
+  const result = await fetchPrice('测试无数据', undefined, { key: 'test-only', throttle: false,
+    fetcher: async () => ({ ok: true, json: async () => ({ status: 400, code: '503005' }) }) });
+  assert.equal(result.ok, true);
+  assert.equal(result.hasData, false);
+  assert.equal(result.record, undefined);
+  assert.equal(result.code, '503005');
+});

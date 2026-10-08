@@ -20,7 +20,8 @@ export function normalizePrice(data, region, now = new Date().toISOString()) {
     mom: number(data.second_hand_price_mom), yoy: number(data.second_hand_price_yoy), fetchedAt: now } };
 }
 
-function upstreamMessage(code) {
+function upstreamMessage(value) {
+  const code = Number(value);
   if (code === 503004) return '今日房价查询额度已用完，请明天再试。';
   if (code === 503003) return '查询频率过高，请稍后再试。';
   if (code === 503001) return '数据源授权无效，请联系网站维护者。';
@@ -45,7 +46,15 @@ export async function fetchPrice(region, period, { key, fetcher = fetch, throttl
       const response = await fetcher(`${BASE}?${params}`, { headers: { Authorization: `Bearer ${key}` }, signal: AbortSignal.timeout(15000) });
       if (!response.ok) return { ok: false, code: 'UPSTREAM_ERROR', message: '房价数据源暂时不可用，请稍后再试。' };
       const body = await response.json();
-      if (body.status !== 200) return { ok: false, code: String(body.code ?? 'UPSTREAM_ERROR'), message: upstreamMessage(body.code) };
+      if (Number(body.status) !== 200) {
+        if (Number(body.code) === 503005) {
+          const result = { ok: true, hasData: false, code: '503005', message: '该地区暂无可访问的二手房均价数据。' };
+          if (cache.size >= 1000) cache.delete(cache.keys().next().value);
+          cache.set(cacheKey, { at: Date.now(), result });
+          return result;
+        }
+        return { ok: false, code: String(body.code ?? 'UPSTREAM_ERROR'), message: upstreamMessage(body.code) };
+      }
       const result = normalizePrice(body.data, region);
       // Keep requested and reported periods separate; never relabel stale data as the requested month.
       if (period && result.record && result.record.period !== period) return { ok: true, hasData: false,
