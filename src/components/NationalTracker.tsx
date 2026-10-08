@@ -200,12 +200,12 @@ export function NationalTracker({ onShowOfficial }: { onShowOfficial: () => void
       {candidates?.length ? <div><p>请选择准确的地区：</p>{candidates.map(candidate => <button className="plain-button candidate"
         key={candidate.id} disabled={busy} onClick={() => void openDetail(String(candidate.id), `${candidate.name} · ${candidate.parent}`)}>
         {candidate.name} · {candidate.parent}</button>)}</div> : null}
-      {history.length > 0 && <>
+      {detail && history.length > 0 && <>
         <p className="detail-price">{history.at(-1)!.price.toLocaleString('zh-CN')} <small>元/㎡</small></p>
         <p>数据月份：{history.at(-1)!.period} · 环比 <Change value={history.at(-1)!.mom} /> · 同比 <Change value={history.at(-1)!.yoy} /></p>
         <Button loading={historyBusy} disabled={busy || !configured} onClick={() => void loadHistory()}>加载近6个月走势</Button>
         <p className="source-note">最多使用 6 次免费查询，已有缓存会优先复用。</p>
-        <TrendChart unit="元/㎡" series={[{ name: detail!.name, points: history.map(record => ({ month: record.period, value: record.price })) }]} />
+        <TrendChart unit="元/㎡" series={[{ name: detail.name, points: history.map(record => ({ month: record.period, value: record.price })) }]} />
       </>}
       {historyNotice && <p role="status">{historyNotice}</p>}
     </Drawer>
