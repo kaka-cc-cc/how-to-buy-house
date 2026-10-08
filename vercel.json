@@ -1,7 +1,16 @@
 {
+  "framework": "vite",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/home",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/city",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
       "destination": "/index.html"
     }
   ]
